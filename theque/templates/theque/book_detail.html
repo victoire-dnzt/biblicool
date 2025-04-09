@@ -1,0 +1,27 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<h1>{{ book.title }}</h1>
+<img src="{{ book.cover.url }}" alt="{{ book.title }}">
+<p>{{ book.summary }}</p>
+<p>{{ book.review }}</p>
+
+<p>Rating: 
+    {% for i in "12345"|slice:":book.rating"|make_list %}
+        <span>&#x2764;</span>
+    {% endfor %}
+</p>
+
+<h2>Comments</h2>
+{% for comment in comments %}
+    <div class="comment">
+        <p><strong>{{ comment.author }}</strong>: {{ comment.text }}</p>
+        <p>{{ comment.created_at }}</p>
+    </div>
+{% endfor %}
+
+<h2>Add a Comment</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
