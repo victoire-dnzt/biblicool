@@ -25,9 +25,13 @@ SECRET_KEY = 'django-insecure-u+q+&%@u18j3jbn7zr*c1&0d0xn_ic*sg7-*h^8ekrdl&@w0sx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = [
-    'biblicool.onrender.com'
-    ]
+    'biblicool.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
+
 
 
 # Application definition
