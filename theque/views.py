@@ -13,6 +13,7 @@ def book_list(request):
 
 def book_detail(request, pk):
     book = get_object_or_404(Book, pk=pk)
+    rating_list = range(book.rating)
     comments = book.comments.all()
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -23,4 +24,4 @@ def book_detail(request, pk):
             return redirect('book_detail', pk=book.pk)
     else:
         form = CommentForm()
-    return render(request, 'theque/book_detail.html', {'book': book, 'comments': comments, 'form': form})
+    return render(request, 'theque/book_detail.html', {'book': book, 'rating_list': rating_list, 'comments': comments, 'form': form})

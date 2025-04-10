@@ -6,8 +6,8 @@
 <p>{{ book.review }}</p>
 
 <p>Rating: 
-    {% for i in "12345"|slice:":book.rating"|make_list %}
-        <span>&#x2764;</span>
+    {% for i in rating_list %}
+    <span>&#x2764;</span>
     {% endfor %}
 </p>
 
