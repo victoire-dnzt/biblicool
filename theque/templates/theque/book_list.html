@@ -59,16 +59,17 @@
             <h1>Book Collection</h1>
         </div>
         <div class="book-grid">
-            {% for book in books %}
-                <div class="book">
-                    <a href="{% url 'book_detail' book.pk %}">
-                        <img src="{{ book.cover.url }}" alt="{{ book.title }}">
-                    </a>
-                    <h2>{{ book.title }}</h2>
-                    <p>{{ book.author }}</p>
-                </div>
-            {% endfor %}
+            {% if books %}
+                {% for book in books %}
+                    <div class="book">
+                        <a href="{% url 'book_detail' book.pk %}">
+                            <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+                        </a>
+                        <h2>{{ book.title }}</h2>
+                        <p>{{ book.author }}</p>
+                    </div>
+                {% endfor %}
         </div>
     </div>
-</body>
+    </body>
 </html>
